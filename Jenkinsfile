@@ -27,10 +27,10 @@ pipeline {
   stages {
     stage('Maven build') {
       steps {
-        checkout scm
         container('maven') {
           sh 'mvn -B clean package'
         }
+        checkout scm
       }
     }
     stage('Docker build') {
